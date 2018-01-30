@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Welcome to Watson</h2>
+  {{isInvalidLogin}}
+  <ion-slides pager>
+
+    <ion-slide style="background-color:#00A1D9">     
+          <ion-card>
+            <img src="../assets/imgs/bot.jpg"/>
+            <ion-card-content>
+              <ion-card-title>
+                Chat With me 
+                </ion-card-title>
+              <p>
+                AI-enhanced messaging Service for Cavion
+              </p>
+              <p><button ion-button (click)="doChat()">Lets Start</button></p>
+            </ion-card-content>
+          </ion-card>
+    </ion-slide>
+  
+    <ion-slide style="background-color:#00A1D9; " >
+      
+      <ion-label style="color: white;font-size: 20px;margin-bottom: 50px;">Bank Users</ion-label> 
+      <ion-label style="color: white;font-size: 20px;margin-bottom: 50px;">Login To Account</ion-label> 
+     
+      <form role="form" #finrouteForm="ngForm" (ngSubmit)="login(finrouteForm)" >
+        <ion-card>          
+          <ion-card-content>
+            <ion-list>
+
+              <ion-item>
+                <ion-label floating>Username</ion-label>
+                <ion-input type="text" name="username" id="username" ngModel></ion-input>
+              </ion-item>
+            
+              <ion-item>
+                <ion-label floating>Password</ion-label>
+                <ion-input type="password" name="password" id="password" ngModel></ion-input>
+              </ion-item>
+            
+            </ion-list>          
+          </ion-card-content>        
+        </ion-card>
+          <button ion-button style="background-color: #3AD4B9" round type="submit">Login</button>
+        </form>
+
+      <div><a style="color: white;" href="#">Forgot password</a></div>
+    </ion-slide>
+  
+  </ion-slides>
+  
+
+</ion-content>
