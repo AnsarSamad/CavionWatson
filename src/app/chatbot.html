@@ -14,13 +14,13 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-content></ion-content>
+  <ion-content><span>{{watsonResponse}}</span></ion-content>
   
   <ion-footer>
     <ion-toolbar>
-      <ion-input type="text" value=""></ion-input>
+      <ion-input type="text" id="userInput" name="userInput" [(ngModel)]="userInput" ></ion-input>
       <ion-buttons end>
-        <button ion-button icon-right color="royal">
+        <button ion-button icon-right color="royal"  (click)="send()">
           Send
           <ion-icon name="send"></ion-icon>
         </button>

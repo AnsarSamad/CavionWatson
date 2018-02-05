@@ -1,4 +1,5 @@
 import { NgModule, ErrorHandler } from '@angular/core';
+import { APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -13,6 +14,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import  {ChatBotComponent} from  './chatbot.component';
 import {HttpClientModule} from  '@angular/common/http';
 import {LoginService} from './services/login.service';
+import {ChatbotService} from  './services/chatbot.service';
+import {AppConfig} from './base/appconfig'
 
 @NgModule({
   declarations: [
@@ -45,6 +48,9 @@ import {LoginService} from './services/login.service';
     SplashScreen,
     ChatBotComponent,
     LoginService,
+    ChatbotService,
+    AppConfig,
+    { provide: APP_INITIALIZER, useFactory: (config: AppConfig) => () => config.load(), deps: [AppConfig], multi: true },
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core'
-import { HttpClient} from '@angular/common/http';
+//import { HttpClient} from '@angular/common/http';
 import { Validator } from '../base/validator';
 
 @Injectable()
 
 export class LoginService extends Validator{
-    constructor(private http: HttpClient){
+    constructor(){
         super();
     }
     login(username:String,password:String){
