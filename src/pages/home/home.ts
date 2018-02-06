@@ -22,12 +22,10 @@ export class HomePage {
 
   login(ngForm : NgForm){
       console.log(JSON.stringify(ngForm.value));
-      if(this.loginService.login(ngForm.value.username,ngForm.value.password)){
-        console.log('Login Success');      
+      this.loginService.login(ngForm.value.username,ngForm.value.password)
+      .then((response)=>{
         this.navCtrl.push(DashboardComponent);
-      }else{
-        this.isInvalidLogin = true;
-      }
+      })      
    
     }
   
