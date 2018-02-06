@@ -1,59 +1,26 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+<!-- logo -->
+<ion-header class="logo_wrp">
+  <ion-title class="title">DEMO FINBOT</ion-title>
+  <img src="../../assets/imgs/logo.png" alt="FINBOT" />
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Watson</h2>
-  {{isInvalidLogin}}
-  <ion-slides pager>
+<ion-content>
+  <ion-grid class="home_wrp">
+    <ion-row>
+      <ion-col col-6 text-center (click)="doChat()">
+          <div class="icon_box" (click)="doChat()">
+            <ion-icon ios="ios-chatbubbles-outline" md="md-chatbubbles" class="home_iocns"></ion-icon>
+          </div>
+          <a href="javascript:void(0);">Let's Start Chat</a>
+      </ion-col>
+      <ion-col col-6 text-center (click)="navigateToLogin()">
+          <div class="icon_box">
+            <ion-icon ios="ios-person-outline" md="md-person" class="home_iocns"></ion-icon>
+          </div>
+        <a href="javascript:void(0);">Customer Login</a>
+      </ion-col>
 
-    <ion-slide style="background-color:#00A1D9">     
-          <ion-card>
-            <img src="../assets/imgs/bot.jpg"/>
-            <ion-card-content>
-              <ion-card-title>
-                Chat With me 
-                </ion-card-title>
-              <p>
-                AI-enhanced messaging Service for Cavion
-              </p>
-              <p><button ion-button (click)="doChat()">Lets Start</button></p>
-            </ion-card-content>
-          </ion-card>
-    </ion-slide>
+    </ion-row>
+  </ion-grid>
   
-    <ion-slide style="background-color:#00A1D9; " >
-      
-      <ion-label style="color: white;font-size: 20px;margin-bottom: 50px;">Bank Users</ion-label> 
-      <ion-label style="color: white;font-size: 20px;margin-bottom: 50px;">Login To Account</ion-label> 
-     
-      <form role="form" #finrouteForm="ngForm" (ngSubmit)="login(finrouteForm)" >
-        <ion-card>          
-          <ion-card-content>
-            <ion-list>
-
-              <ion-item>
-                <ion-label floating>Username</ion-label>
-                <ion-input type="text" name="username" id="username" ngModel></ion-input>
-              </ion-item>
-            
-              <ion-item>
-                <ion-label floating>Password</ion-label>
-                <ion-input type="password" name="password" id="password" ngModel></ion-input>
-              </ion-item>
-            
-            </ion-list>          
-          </ion-card-content>        
-        </ion-card>
-          <button ion-button style="background-color: #3AD4B9" round type="submit">Login</button>
-        </form>
-
-      <div><a style="color: white;" href="#">Forgot password</a></div>
-    </ion-slide>
-  
-  </ion-slides>
-  
-
 </ion-content>

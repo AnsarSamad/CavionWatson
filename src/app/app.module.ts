@@ -15,7 +15,8 @@ import  {ChatBotComponent} from  './chatbot.component';
 import {HttpClientModule} from  '@angular/common/http';
 import {LoginService} from './services/login.service';
 import {ChatbotService} from  './services/chatbot.service';
-import {AppConfig} from './base/appconfig'
+import { AppConfig } from './base/appconfig';
+import { LoginPage } from "../pages/login/login";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {AppConfig} from './base/appconfig'
     ContactPage,
     HomePage,
     TabsPage,
+    LoginPage,
     ChatBotComponent,
     DashboardComponent
   ],
@@ -40,6 +42,7 @@ import {AppConfig} from './base/appconfig'
     ContactPage,
     HomePage,
     TabsPage,
+    LoginPage,
     ChatBotComponent,
     DashboardComponent
   ],
