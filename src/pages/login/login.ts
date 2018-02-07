@@ -23,10 +23,10 @@ goHome(){
 login(ngForm : NgForm) {
     console.log(JSON.stringify(ngForm.value));
     this.loginService.login(ngForm.value.username,ngForm.value.password)
-    .then((response)=>{
-      this.navCtrl.push(DashboardComponent);
-    })      
+    .then(
+      (response)=>this.navCtrl.push(DashboardComponent),
+      (error)=>console.log("Login failed"),
+    );      
   
-  }
-  
+  }  
 }
