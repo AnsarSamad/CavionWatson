@@ -14,4 +14,8 @@ export class ChatbotService{
         console.log('server url is:'+request);      
         return this.http.post("http://localhost:3000/watson" ,{"userInput":userInput} );
     }
+
+    processWatsonAction(action:string,data:Object){
+        return this.http.post("http://localhost:3000/cavion" ,{"action":action,"data":data} );
+    }
 }
