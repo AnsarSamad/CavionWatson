@@ -49,7 +49,6 @@ import { LoginPage } from "../pages/login/login";
   providers: [
     StatusBar,
     SplashScreen,
-    ChatBotComponent,
     LoginService,
     ChatbotService,
     AppConfig,

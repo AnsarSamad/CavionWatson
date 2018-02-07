@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {ChatBotComponent} from  '../../app/chatbot.component'
 import {DashboardComponent} from  '../../app/dashboard/dashboard.component';
-import { LoginService } from '../../app/services/login.service';
 import { LoginPage } from '../../pages/login/login';
 
 
@@ -12,7 +11,7 @@ import { LoginPage } from '../../pages/login/login';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController , public chatbot : ChatBotComponent) {
+  constructor(public navCtrl: NavController) {
 
   }
 

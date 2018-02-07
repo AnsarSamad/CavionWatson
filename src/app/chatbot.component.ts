@@ -1,4 +1,6 @@
-import {Component,OnInit} from '@angular/core'
+import {Component,OnInit} from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { HomePage } from '../pages/home/home';
 import {ChatbotService} from './services/chatbot.service'
 @Component({
     templateUrl: 'chatbot.html',
@@ -8,9 +10,13 @@ export class ChatBotComponent implements OnInit {
 
   userInput :string="";
   watsonResponse : string = "";
-  constructor(private chatbotService : ChatbotService){
+  constructor(private chatbotService : ChatbotService, private navCtrl: NavController){
     
   }
+
+ goHome(){
+  this.navCtrl.push(HomePage);
+}
 
   ngOnInit(){
     this.chatbotService.getData("conversation_start")

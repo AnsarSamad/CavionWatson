@@ -226,3 +226,154 @@ p {
 		}
 	}
 }
+
+/* Chart */
+.chart_header_wrp {
+	width: 100%;
+	float: left;
+	background: $secondary_color;
+	padding: 15px;
+	position: relative;
+	text-align: center;
+
+	.toolbar-title {
+		font-size: 16px;
+		color: $white;
+		font-weight: 400;
+	}	
+	.chat_back {
+		position: absolute;
+		font-size: 18px;
+		color: $white;
+		left: 15px;
+		top: 15px;
+	}
+}
+.chat_wrp {
+	background: $chat_bg;
+
+	.chat_cnt_wrp {
+		width: 100%;
+		float: left;
+		background: $chat_bg;
+		padding: 15px 20px;
+
+		.col {
+			padding: 0;
+		}
+
+		.admin_chat {
+			background: $white;
+			@include border-radius(5px);
+			padding: 10px 15px;
+			width: auto;
+			float: left;
+			position: relative;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);		
+
+			&:before {
+				content: "";
+				width: 0px;
+				height: 0px;
+				position: absolute;
+				border-left: 8px solid transparent;
+				border-right: 8px solid $white;
+				border-top: 8px solid $white;
+				border-bottom: 8px solid transparent;
+				left: -9px;
+				top: 0px;				
+			}
+		}
+		.user_chat {	
+			background: $secondary_color;
+			@include border-radius(5px);
+			padding: 10px 15px;
+			width: auto;
+			float: right;	
+			position: relative;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);	
+
+			p {
+				color: $white;
+			}
+			&:before {
+				content: "";
+				width: 0px;
+				height: 0px;
+				position: absolute;
+				border-left: 8px solid $secondary_color;
+				border-right: 8px solid transparent;
+				border-top: 8px solid $secondary_color;
+				border-bottom: 8px solid transparent;
+				right: -9px;
+				top: 0px;			
+			}
+		}
+
+	}
+}
+.ios_chat_footer_wrp {
+	width: 100%;
+	padding: 0 15px;
+
+	.toolbar-ios {
+		padding: 10px 15px;
+	}
+	.text-input {
+		@include border-radius(25px);
+		border: 1px solid $input_border;
+		padding: 10px 15px;
+		font-size: 14px;
+		font-weight: 400;
+		color: $text-color;
+		margin: 0;
+	}
+	&.footer-ios {
+		padding: 0;
+	}
+
+	.send_button {
+		background: $button_primary;
+		color: $white;
+		font-size: 18px;
+		padding: 10px;
+		@include border-radius(50%);
+	}
+}
+
+.android_chat_footer_wrp {
+	width: 100%;
+	padding: 0 5px 0 10px;
+
+	.toolbar-background-md {
+		background: $chat_bg;
+	}
+	.toolbar-md {
+		padding: 10px 0;
+	}
+
+	.text-input {
+		@include border-radius(5px);
+		padding: 12px 15px;
+		font-size: 14px;
+		font-weight: 400;
+		color: $text-color;
+		background: $white;
+		margin: 0;
+		width: 97%;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1);
+	}
+
+	.send_button {
+		background: $button_primary;
+		color: $white;
+		font-size: 18px;
+		padding: 20px 12px;
+		text-align: center;
+		@include border-radius(50%);
+	}
+
+	&:before {
+		background: none;
+	}
+}
