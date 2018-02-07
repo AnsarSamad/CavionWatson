@@ -38,14 +38,14 @@
   <ion-content class="chat_wrp">
     <ion-grid class="chat_cnt_wrp">
       <ion-row>
-          <ion-col col-12>
+          <ion-col *ngIf="watsonResponse" col-12>
               <div class="admin_chat">
-                <p>Hi.. How can i help you?</p>
+                <p>{{watsonResponse}}</p>
               </div>
           </ion-col>
-          <ion-col col-12>
+          <ion-col *ngIf="userInput" col-12>
               <div class="user_chat">
-                <p>Hi.. Finbot</p>
+                <p>{{userInput}}</p>
               </div>
           </ion-col>
       </ion-row>
