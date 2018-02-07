@@ -48,7 +48,6 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  font-family: $font_stack;   
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -86,6 +85,10 @@ p {
 	font-size: 13px;
 	background: $button_primary;
 	@include border-radius(3px);
+
+	&.active,&:focus, &:active {
+		background: $button_primary;
+	}
 }
 
 /* Home */
@@ -248,6 +251,21 @@ p {
 		left: 15px;
 		top: 15px;
 	}
+
+	&.header-ios {
+		background: $ios_header_bg;
+		border-bottom: 1px solid $ios_header_border;
+
+		.toolbar-title {
+			color: $ios_title;
+			font-weight: 500;
+			font-size: 20px;
+		}
+		.chat_back {
+			color: $ios_title;
+			font-size: 20px;
+		}
+	}
 }
 .chat_wrp {
 	background: $chat_bg;
@@ -375,5 +393,66 @@ p {
 
 	&:before {
 		background: none;
+	}
+}
+
+/* Epic */
+.epic_wrp {
+	background: $white;
+
+	.list-ios {
+		margin-bottom: 10px;
+	}
+	.list-header {
+		.label {
+			padding: 0;
+			margin: 0;
+			font-size: 16px;
+		}
+
+		&.list-header-md {
+			margin-bottom: 0;
+		}
+
+		&.list-header-ios {
+			background: $ios_sub_head_bg;
+		}
+	}
+
+	.item-block  {
+		padding-left: 0;
+		.label {
+			padding-left: 16px;
+
+			h2 {
+				font-size: 16px;
+				color: $ios_title;
+				font-weight: 500;
+			}
+			h3 {
+				font-size: 14px;
+				color: $ios_title;
+				font-weight: 500;
+				margin: 5px 0;
+			}
+			p {
+				font-size: 13px;
+			}
+		}		
+	}
+
+	.button_opt {
+		.button {
+			font-size: 16px;
+
+			&.button-md {
+				font-size: 13px;
+			}
+		}
+	}
+	
+
+	&.content-ios.outer-content {
+		background: $white;
 	}
 }

@@ -1,35 +1,32 @@
-<ion-header>
-    <ion-navbar>
-      <ion-title>EPIC Tickets</ion-title>
-    </ion-navbar>
+<ion-header class="chart_header_wrp">
+    <ion-title class="name">Epic Tickets</ion-title>
+    <div class="chat_back">
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+    </div>
   </ion-header>
   
-  <ion-content class="outer-content">
+  <ion-content class="outer-content epic_wrp">
     <ion-list>
-      <ion-list-header>
-        Today
-      </ion-list-header>
+      <ion-list-header>Today</ion-list-header>
   
       <ion-item-sliding>
         <ion-item>
-          <ion-avatar item-start>
-            <img src="../assets/imgs/venkman.jpg">
-          </ion-avatar>
-          <h2>Venkman</h2>
+          <h2>Smith</h2>
+          <h3>Ticket Number - EPCI24412</h3>
           <p>Login Issue , not able to access Cavion IB</p>
         </ion-item>
-        <ion-item-options>
+       <ion-item-options class="button_opt">
           <button ion-button color="light" icon-start>
             <ion-icon name="ios-more"></ion-icon>
             More
-          </button>
-          <button ion-button color="primary" icon-start>
-            <ion-icon name="text"></ion-icon>
-            Text
-          </button>
+          </button>          
           <button ion-button color="secondary" icon-start>
-            <ion-icon name="call"></ion-icon>
+            <ion-icon ios="ios-call" md="md-call"></ion-icon>
             Call
+          </button>
+          <button ion-button color="danger" icon-start>
+            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+            Delete
           </button>
         </ion-item-options>
       </ion-item-sliding>
@@ -37,123 +34,47 @@
   
       <ion-item-sliding>
         <ion-item>
-          <ion-avatar item-start>
-            <img src="../assets/imgs/spengler.jpg">
-          </ion-avatar>
-          <h2>Egon</h2>
+          <h2>John</h2>
+          <h3>Ticket Number - EPCI12451</h3>
           <p>User Locked out, please reset bad pin count</p>
         </ion-item>
-        <ion-item-options>
+        <ion-item-options class="button_opt">
           <button ion-button color="light" icon-start>
             <ion-icon name="ios-more"></ion-icon>
             More
-          </button>
-          <button ion-button color="primary" icon-start>
-            <ion-icon name="text"></ion-icon>
-            Text
-          </button>
+          </button>          
           <button ion-button color="secondary" icon-start>
-            <ion-icon name="call"></ion-icon>
+            <ion-icon ios="ios-call" md="md-call"></ion-icon>
             Call
+          </button>
+          <button ion-button color="danger" icon-start>
+            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+            Delete
           </button>
         </ion-item-options>
       </ion-item-sliding>
   
       <ion-item-sliding>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="../assets/imgs/stantz.jpg">
-          </ion-avatar>
-          <h2>Ray</h2>
+        <ion-item>          
+           <h2>Roy</h2>
+           <h3>Ticket Number: EPCI65442</h3>
           <p>ACH Batch , showing invalid amount</p>
         </ion-item>
-        <ion-item-options>
+        <ion-item-options class="button_opt">
           <button ion-button color="light" icon-start>
             <ion-icon name="ios-more"></ion-icon>
             More
-          </button>
-          <button ion-button color="primary" icon-start>
-            <ion-icon name="text"></ion-icon>
-            Text
-          </button>
+          </button>          
           <button ion-button color="secondary" icon-start>
-            <ion-icon name="call"></ion-icon>
+            <ion-icon ios="ios-call" md="md-call"></ion-icon>
             Call
           </button>
-        </ion-item-options>
-      </ion-item-sliding>
-  
-      <ion-item-sliding>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="../assets/imgs/winston.jpg">
-          </ion-avatar>
-          <h2>Winston</h2>
-          <p>How to remove EStatement emails</p>
-        </ion-item>
-        <ion-item-options>
-          <button ion-button color="light" icon-start>
-            <ion-icon name="ios-more"></ion-icon>
-            More
-          </button>
-          <button ion-button color="primary" icon-start>
-            <ion-icon name="text"></ion-icon>
-            Text
-          </button>
-          <button ion-button color="secondary" icon-start>
-            <ion-icon name="call"></ion-icon>
-            Call
+          <button ion-button color="danger" icon-start>
+            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+            Delete
           </button>
         </ion-item-options>
-      </ion-item-sliding>
-  
-      <ion-item-sliding>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="../assets/imgs/tully.jpg">
-          </ion-avatar>
-          <h2>Tully</h2>
-          <p>EStatement is not recieved</p>
-        </ion-item>
-        <ion-item-options>
-          <button ion-button color="light" icon-start>
-            <ion-icon name="ios-more"></ion-icon>
-            More
-          </button>
-          <button ion-button color="primary" icon-start>
-            <ion-icon name="text"></ion-icon>
-            Text
-          </button>
-          <button ion-button color="secondary" icon-start>
-            <ion-icon name="call"></ion-icon>
-            Call
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
-  
-      <ion-item-sliding>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="../assets/imgs/barrett.jpg">
-          </ion-avatar>
-          <h2>Dana</h2>
-          <p>Bill pay History not showing</p>
-        </ion-item>
-        <ion-item-options>
-          <button ion-button color="light" icon-start>
-            <ion-icon name="ios-more"></ion-icon>
-            More
-          </button>
-          <button ion-button color="primary" icon-start>
-            <ion-icon name="text"></ion-icon>
-            Text
-          </button>
-          <button ion-button color="secondary"icon-start >
-            <ion-icon name="call"></ion-icon>
-            Call
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
+      </ion-item-sliding>     
   
     </ion-list>
   
@@ -164,76 +85,48 @@
   
       <ion-item-sliding>
         <ion-item>
-          <ion-avatar item-start>
-            <img src="../assets/imgs/slimer.jpg">
-          </ion-avatar>
-          <h2>Slimer</h2>
+          <h2>John</h2>
+          <h3>Ticket Number: EPCI24412</h3>
           <p>User Locked out!</p>
         </ion-item>
-        <ion-item-options>
+        <ion-item-options class="button_opt">
           <button ion-button color="light" icon-start>
             <ion-icon name="ios-more"></ion-icon>
             More
-          </button>
-          <button ion-button color="primary" icon-start>
-            <ion-icon name="text"></ion-icon>
-            Text
-          </button>
+          </button>          
           <button ion-button color="secondary" icon-start>
-            <ion-icon name="call"></ion-icon>
+            <ion-icon ios="ios-call" md="md-call"></ion-icon>
             Call
+          </button>
+          <button ion-button color="danger" icon-start>
+            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+            Delete
           </button>
         </ion-item-options>
       </ion-item-sliding>
   
       <ion-item-sliding>
         <ion-item>
-          <ion-avatar item-start>
-            <img src="../assets/imgs/marshmallow-man.png">
-          </ion-avatar>
-          <h2>Marshmallow Man</h2>
+          <h2>Smith</h2>
+          <h3>Ticket Number: EPCI548754</h3>
           <p>Redirect issue with Estatement</p>
         </ion-item>
-        <ion-item-options>
+       <ion-item-options class="button_opt">
           <button ion-button color="light" icon-start>
             <ion-icon name="ios-more"></ion-icon>
             More
-          </button>
-          <button ion-button color="primary" icon-start>
-            <ion-icon name="text"></ion-icon>
-            Text
-          </button>
+          </button>          
           <button ion-button color="secondary" icon-start>
-            <ion-icon name="call"></ion-icon>
+            <ion-icon ios="ios-call" md="md-call"></ion-icon>
             Call
+          </button>
+          <button ion-button color="danger" icon-start>
+            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+            Delete
           </button>
         </ion-item-options>
       </ion-item-sliding>
-  
-      <ion-item-sliding>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="../assets/imgs/gozer.png">
-          </ion-avatar>
-          <h2>Gozer</h2>
-          <p>Are you a God?</p>
-        </ion-item>
-        <ion-item-options>
-          <button ion-button color="light" icon-start>
-            <ion-icon name="ios-more"></ion-icon>
-            More
-          </button>
-          <button ion-button color="primary" icon-start>
-            <ion-icon name="text"></ion-icon>
-            Text
-          </button>
-          <button ion-button color="secondary" icon-start>
-            <ion-icon name="call"></ion-icon>
-            Call
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
-  
+
     </ion-list>
   
   </ion-content>
