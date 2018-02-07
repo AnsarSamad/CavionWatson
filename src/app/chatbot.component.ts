@@ -9,7 +9,9 @@ import {ChatbotService} from './services/chatbot.service'
 export class ChatBotComponent implements OnInit {
 
   userInput :string="";
+  ngInput : string = "";
   watsonResponse : string = "";
+  watsonResponseArray : string[];
   constructor(private chatbotService : ChatbotService, private navCtrl: NavController){
     
   }
@@ -20,19 +22,29 @@ export class ChatBotComponent implements OnInit {
 
   ngOnInit(){
     this.chatbotService.getData("conversation_start")
-    .subscribe((response:string)=>{
-      this.watsonResponse = response;
+    .subscribe((response:any)=>{
+      this.watsonResponseArray = response.output;
       this.userInput = "";
     })
   }
 
   send(){
     console.log('user input is:'+this.userInput);
-   this.chatbotService.getData(this.userInput)
-   .subscribe((response:string)=>{     
-      this.watsonResponse = response;
-      this.userInput = "";
-      console.log('watson response is:'+this.watsonResponse);
+    this.ngInput = this.userInput;
+    this.userInput = "";
+   this.chatbotService.getData(this.ngInput)
+   .subscribe((response:any)=>{     
+      this.watsonResponseArray = response.output;
+      console.log('watson response action :'+response.action)
+      console.log('Watson response data :'+response.data);
+      console.log('watson response is:'+this.watsonResponseArray);
+      if(response.action != undefined){
+          this.chatbotService.processWatsonAction(response.action,response.data)
+          .subscribe((cavionresponse:string[])=>{
+              console.log('node server returned cavion response '+cavionresponse);
+              this.watsonResponseArray = cavionresponse;
+          })
+      }
    })
   }
 }
