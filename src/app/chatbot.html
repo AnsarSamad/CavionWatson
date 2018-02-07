@@ -34,18 +34,17 @@
         <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
     </div>
   </ion-header>
-
   <ion-content class="chat_wrp">
-    <ion-grid class="chat_cnt_wrp">
-      <ion-row>
-          <ion-col *ngIf="watsonResponseArray" col-12>
-              <div class="admin_chat">
-                <p>{{watsonResponseArray}}</p>
+    <ion-grid *ngIf="messages" class="chat_cnt_wrp">
+      <ion-row *ngFor="let message of messages">
+          <ion-col col-12 *ngIf="message.question">
+              <div class="user_chat">
+                <p>{{message.question}}</p>
               </div>
           </ion-col>
-          <ion-col *ngIf="ngInput" col-12>
-              <div class="user_chat">
-                <p>{{ngInput}}</p>
+          <ion-col col-12 *ngIf="message.answer">
+              <div class="admin_chat">
+                <p>{{message.answer}}</p>
               </div>
           </ion-col>
       </ion-row>

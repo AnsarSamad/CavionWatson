@@ -10,8 +10,8 @@ export class ChatBotComponent implements OnInit {
 
   userInput :string="";
   ngInput : string = "";
-  watsonResponse : string = "";
   watsonResponseArray : string[];
+  messages:{question:string,answer:string}[]=[];
   constructor(private chatbotService : ChatbotService, private navCtrl: NavController){
     
   }
@@ -25,6 +25,7 @@ export class ChatBotComponent implements OnInit {
     .subscribe((response:any)=>{
       this.watsonResponseArray = response.output;
       this.userInput = "";
+      this.messages.push({"question":"","answer":this.watsonResponseArray[0]});
     })
   }
 
@@ -42,9 +43,10 @@ export class ChatBotComponent implements OnInit {
           this.chatbotService.processWatsonAction(response.action,response.data)
           .subscribe((cavionresponse:string[])=>{
               console.log('node server returned cavion response '+cavionresponse);
-              this.watsonResponseArray = cavionresponse;
+              this.watsonResponseArray = cavionresponse;              
           })
       }
+      this.messages.push({"question":this.ngInput,"answer":this.watsonResponseArray[0]});
    })
   }
 }
