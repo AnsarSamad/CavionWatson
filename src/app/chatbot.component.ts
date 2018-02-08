@@ -47,6 +47,7 @@ export class ChatBotComponent implements OnInit {
               this.messages.push({"question":"","answer":this.watsonResponseArray[0]});  
               this.chatbotService.processWatsonAction(cavionresponse.action,cavionresponse.data)  
               .subscribe((cavionmfaresponse:any)=>{
+                console.log('cavion mfa question is'+cavionmfaresponse.output)
                 this.watsonResponseArray = cavionmfaresponse.output; 
                 this.messages.push({"question":"","answer":this.watsonResponseArray[0]}); 
               })

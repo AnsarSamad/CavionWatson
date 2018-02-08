@@ -4,6 +4,7 @@ import { LoginService } from '../../app/services/login.service';
 import {DashboardComponent} from  '../../app/dashboard/dashboard.component';
 import { HomePage } from '../../pages/home/home';
 import {NgForm} from  '@angular/forms'
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-login',
@@ -12,7 +13,7 @@ import {NgForm} from  '@angular/forms'
 export class LoginPage {
 
 isInvalidLogin  :boolean = false;
-constructor(public navCtrl: NavController , public loginService:LoginService) {
+constructor(public navCtrl: NavController , public toastCtrl: ToastController, public loginService:LoginService) {
 
 }
 
@@ -21,12 +22,28 @@ goHome(){
 }
 
 login(ngForm : NgForm) {
-    console.log(JSON.stringify(ngForm.value));
-    this.loginService.login(ngForm.value.username,ngForm.value.password)
+    var username = ngForm.value.username;
+    var password = ngForm.value.password;
+    if(username == '' || password == ''){
+      this.showMessage('Invalid User  , Please  try again');
+      return;
+    }
+    this.loginService.login(username,password)
     .then(
       (response)=>this.navCtrl.push(DashboardComponent),
-      (error)=>console.log("Login failed"),
+      (error)=>{
+        this.showMessage('Invalid User  , Please  try again');
+      }
     );      
   
   }  
+
+  showMessage(message){
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'top'
+    });
+    toast.present();
+  }
 }
