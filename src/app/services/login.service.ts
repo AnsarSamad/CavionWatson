@@ -16,7 +16,6 @@ export class LoginService extends Validator{
                 (response)=>resolve(true),
                 (error)=>reject(false),
             );
-        }); 
-       
+        });        
     }
 }

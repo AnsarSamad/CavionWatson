@@ -36,21 +36,20 @@ export class ChatBotComponent implements OnInit {
    this.chatbotService.getData(this.ngInput)
    .subscribe((response:any)=>{     
       this.watsonResponseArray = response.output;
-      console.log('watson response action :'+response.action)
-      console.log('Watson response data :'+response.data);
-      console.log('watson response is:'+this.watsonResponseArray);
+      console.log('watson response action :'+JSON.stringify(response))
+
       if(response.action != undefined){
           this.chatbotService.processWatsonAction(response.action,response.data)
           .subscribe((cavionresponse:any)=>{
               console.log('node server returned cavion response '+cavionresponse.output);
               this.watsonResponseArray = cavionresponse.output;    
               this.messages.push({"question":"","answer":this.watsonResponseArray[0]});  
-              this.chatbotService.processWatsonAction(cavionresponse.action,cavionresponse.data)  
-              .subscribe((cavionmfaresponse:any)=>{
-                console.log('cavion mfa question is'+cavionmfaresponse.output)
-                this.watsonResponseArray = cavionmfaresponse.output; 
-                this.messages.push({"question":"","answer":this.watsonResponseArray[0]}); 
-              })
+              // this.chatbotService.processWatsonAction(cavionresponse.action,cavionresponse.data)  
+              // .subscribe((cavionmfaresponse:any)=>{
+              //   console.log('cavion mfa question is'+cavionmfaresponse.output)
+              //   this.watsonResponseArray = cavionmfaresponse.output; 
+              //   this.messages.push({"question":"","answer":this.watsonResponseArray[0]}); 
+              // })
           })
       }
       this.messages.push({"question":this.ngInput,"answer":this.watsonResponseArray[0]});
