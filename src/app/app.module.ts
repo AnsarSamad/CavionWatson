@@ -17,6 +17,9 @@ import {LoginService} from './services/login.service';
 import {ChatbotService} from  './services/chatbot.service';
 import { AppConfig } from './base/appconfig';
 import { LoginPage } from "../pages/login/login";
+import { AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/database-deprecated';
+import { firebase } from "../app/base/firebase";
+import { AngularFireModule } from 'angularfire2';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { LoginPage } from "../pages/login/login";
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(firebase),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -52,6 +57,7 @@ import { LoginPage } from "../pages/login/login";
     LoginService,
     ChatbotService,
     AppConfig,
+    AngularFireDatabase,
     { provide: APP_INITIALIZER, useFactory: (config: AppConfig) => () => config.load(), deps: [AppConfig], multi: true },
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

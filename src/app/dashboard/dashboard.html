@@ -1,134 +1,33 @@
 <ion-header class="chart_header_wrp">
-    <ion-title class="name">Epic Tickets</ion-title>
-    <div class="chat_back">
-        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
-    </div>
-  </ion-header>
-  
-  <ion-content class="outer-content epic_wrp">
-    <!--<ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>-->
-    <ion-searchbar></ion-searchbar>
-    <ion-list>
-      <ion-list-header>Today</ion-list-header>
-  
-      <ion-item-sliding>
-        <ion-item>
-          <h2>Smith</h2>
-          <h3>Ticket Number - EPCI24412</h3>
-          <p>Login Issue , not able to access Cavion IB</p>
-        </ion-item>
-       <ion-item-options class="button_opt">
-          <button ion-button color="light" icon-start>
-            <ion-icon name="ios-more"></ion-icon>
-            More
-          </button>          
-          <button ion-button color="secondary" icon-start>
-            <ion-icon ios="ios-call" md="md-call"></ion-icon>
-            Call
-          </button>
-          <button ion-button color="danger" icon-start>
-            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-            Delete
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
-  
-  
-      <ion-item-sliding>
-        <ion-item>
-          <h2>John</h2>
-          <h3>Ticket Number - EPCI12451</h3>
-          <p>User Locked out, please reset bad pin count</p>
-        </ion-item>
-        <ion-item-options class="button_opt">
-          <button ion-button color="light" icon-start>
-            <ion-icon name="ios-more"></ion-icon>
-            More
-          </button>          
-          <button ion-button color="secondary" icon-start>
-            <ion-icon ios="ios-call" md="md-call"></ion-icon>
-            Call
-          </button>
-          <button ion-button color="danger" icon-start>
-            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-            Delete
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
-  
-      <ion-item-sliding>
-        <ion-item>          
-           <h2>Roy</h2>
-           <h3>Ticket Number: EPCI65442</h3>
-          <p>ACH Batch , showing invalid amount</p>
-        </ion-item>
-        <ion-item-options class="button_opt">
-          <button ion-button color="light" icon-start>
-            <ion-icon name="ios-more"></ion-icon>
-            More
-          </button>          
-          <button ion-button color="secondary" icon-start>
-            <ion-icon ios="ios-call" md="md-call"></ion-icon>
-            Call
-          </button>
-          <button ion-button color="danger" icon-start>
-            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-            Delete
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>     
-  
-    </ion-list>
-  
-    <ion-list>
-      <ion-list-header>
-        Yesterday
-      </ion-list-header>
-  
-      <ion-item-sliding>
-        <ion-item>
-          <h2>John</h2>
-          <h3>Ticket Number: EPCI24412</h3>
-          <p>User Locked out!</p>
-        </ion-item>
-        <ion-item-options class="button_opt">
-          <button ion-button color="light" icon-start>
-            <ion-icon name="ios-more"></ion-icon>
-            More
-          </button>          
-          <button ion-button color="secondary" icon-start>
-            <ion-icon ios="ios-call" md="md-call"></ion-icon>
-            Call
-          </button>
-          <button ion-button color="danger" icon-start>
-            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-            Delete
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
-  
-      <ion-item-sliding>
-        <ion-item>
-          <h2>Smith</h2>
-          <h3>Ticket Number: EPCI548754</h3>
-          <p>Redirect issue with Estatement</p>
-        </ion-item>
-       <ion-item-options class="button_opt">
-          <button ion-button color="light" icon-start>
-            <ion-icon name="ios-more"></ion-icon>
-            More
-          </button>          
-          <button ion-button color="secondary" icon-start>
-            <ion-icon ios="ios-call" md="md-call"></ion-icon>
-            Call
-          </button>
-          <button ion-button color="danger" icon-start>
-            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-            Delete
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
 
-    </ion-list>
-  
-  </ion-content>
+  <ion-title class="name">Epic Tickets</ion-title>
+  <div class="chat_back">
+    <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+  </div>
+</ion-header>
+<ion-content class="outer-content epic_wrp">
+  <ion-list *ngFor="let ticket of tickets | async">
+    <ion-item-sliding>
+      <ion-item>
+        <h2>{{ticket.Member}}</h2>
+        <h3>Ticket Number - {{ticket.Ticket_id}}</h3>
+        <p>{{ticket.Issue_description}}</p>
+        <p>{{ticket.Status}}</p>
+      </ion-item>
+      <ion-item-options class="button_opt">
+        <button ion-button color="light" icon-start>
+                <ion-icon name="ios-more"></ion-icon>
+                More
+              </button>
+        <button ion-button color="secondary" icon-start>
+                <ion-icon ios="ios-call" md="md-call"></ion-icon>
+                Call
+              </button>
+        <button ion-button color="danger" icon-start>
+                <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+                Delete
+              </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
