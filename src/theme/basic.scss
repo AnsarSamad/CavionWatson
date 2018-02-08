@@ -279,6 +279,7 @@ p {
 			background: $secondary_color;
 			@include border-radius(5px);
 			padding: 10px 15px;
+			margin: 15px 0;
 			width: auto;
 			float: right;	
 			position: relative;
