@@ -1,5 +1,5 @@
 import {Component,OnInit} from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { HomePage } from '../../pages/home/home';
 import {TicketDetailsComponent} from  '../ticket-details/ticket-details.component';
@@ -13,7 +13,7 @@ import {TicketDetailsComponent} from  '../ticket-details/ticket-details.componen
 export class TicketComponent implements OnInit {
 
     tickets: FirebaseListObservable<any[]>;
-    constructor(public af: AngularFireDatabase, public navCtrl: NavController){
+    constructor(public af: AngularFireDatabase, public navCtrl: NavController, public alertCtrl: AlertController){
 
     }
     goHome(){
@@ -22,6 +22,28 @@ export class TicketComponent implements OnInit {
     goTicketDetails(){
         this.navCtrl.push(TicketDetailsComponent);
     }
+    deleteTicket() {
+        let confirm = this.alertCtrl.create({
+        title: 'Are you want to delete this ticket?',
+        
+        buttons: [
+            {
+            text: 'Cancel',
+            handler: () => {
+                console.log('Disagree clicked');
+            }
+            },
+            {
+            text: 'Delete',
+            handler: () => {
+                console.log('Agree clicked');
+            }
+            }
+        ]
+        });
+        confirm.present();
+    }
+
     ngOnInit() {
         this.tickets = this.af.list('/Tickets');
         console.log("Tickets :" + this.tickets);

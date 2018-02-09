@@ -1,5 +1,5 @@
 import {Component,OnInit} from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 import {TicketComponent} from  '../../app/dashboard/ticket.component';
 
@@ -12,7 +12,7 @@ import {TicketComponent} from  '../../app/dashboard/ticket.component';
 export class TicketDetailsComponent implements OnInit {
 
     tickets: FirebaseListObservable<any[]>;
-    constructor(public af: AngularFireDatabase, public navCtrl: NavController){
+    constructor(public af: AngularFireDatabase, public navCtrl: NavController, public alertCtrl: AlertController){
 
     }
 
@@ -20,8 +20,29 @@ export class TicketDetailsComponent implements OnInit {
         this.navCtrl.push(TicketComponent);
     }
 
-    ngOnInit() {
-      
-    
+    deleteTicket() {
+    let confirm = this.alertCtrl.create({
+      title: 'Are you want to delete this ticket?',
+     
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'Delete',
+          handler: () => {
+            console.log('Agree clicked');
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
+
+    ngOnInit() {      
+    
+    }
 }
