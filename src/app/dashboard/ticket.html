@@ -1,7 +1,7 @@
 <ion-header class="chart_header_wrp">
 
   <ion-title class="name">Epic Tickets</ion-title>
-  <div class="chat_back">
+  <div class="chat_back" (click)="goHome()">
     <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
   </div>
 </ion-header>
@@ -15,7 +15,7 @@
         <p>{{ticket.Status}}</p>
       </ion-item>
       <ion-item-options class="button_opt">
-        <button ion-button color="light" icon-start>
+        <button ion-button color="light" icon-start (click)="goTicketDetails()">
                 <ion-icon name="ios-more"></ion-icon>
                 More
               </button>

@@ -429,3 +429,18 @@ p {
 		background: $white;
 	}
 }
+
+/* Ticket Details */
+.ticket_details_wrp {
+	.date {
+		margin: 0 0 10px;
+		font-size: 12px;
+	}
+	.button-inner {
+		.icon {
+			font-size: 20px;
+			margin-right: 5px;
+
+		}
+	}
+}

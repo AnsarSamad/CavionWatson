@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {ChatBotComponent} from  '../../app/chatbot.component'
-import {DashboardComponent} from  '../../app/dashboard/dashboard.component';
 import { LoginPage } from '../../pages/login/login';
 
 

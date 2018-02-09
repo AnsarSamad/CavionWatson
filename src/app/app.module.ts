@@ -8,13 +8,14 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import {TicketComponent} from  '../app/dashboard/ticket.component';
+import { TicketComponent } from  '../app/dashboard/ticket.component';
+import { TicketDetailsComponent } from  '../app/ticket-details/ticket-details.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import  {ChatBotComponent} from  './chatbot.component';
-import {HttpClientModule} from  '@angular/common/http';
-import {LoginService} from './services/login.service';
-import {ChatbotService} from  './services/chatbot.service';
+import { ChatBotComponent } from  './chatbot.component';
+import { HttpClientModule } from  '@angular/common/http';
+import { LoginService } from './services/login.service';
+import { ChatbotService } from  './services/chatbot.service';
 import { AppConfig } from './base/appconfig';
 import { LoginPage } from "../pages/login/login";
 import { AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/database-deprecated';
@@ -30,7 +31,8 @@ import { AngularFireModule } from 'angularfire2';
     TabsPage,
     LoginPage,
     ChatBotComponent,
-    TicketComponent
+    TicketComponent,
+    TicketDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { AngularFireModule } from 'angularfire2';
     TabsPage,
     LoginPage,
     ChatBotComponent,
-    TicketComponent
+    TicketComponent,
+    TicketDetailsComponent
   ],
   providers: [
     StatusBar,
