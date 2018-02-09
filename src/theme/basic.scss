@@ -169,7 +169,7 @@ p {
 		}
 		.text-input {
 			font-size: 13px;
-			padding: 12px 0 0;
+			padding: 0;
 		}
 		.button {
 			float: right;
@@ -406,6 +406,10 @@ p {
 			}
 			p {
 				font-size: 13px;
+			}
+
+			&.label-md {
+				margin: 13px 0 0;
 			}
 		}		
 	}
