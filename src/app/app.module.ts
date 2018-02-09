@@ -8,7 +8,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import {DashboardComponent} from  '../app/dashboard/dashboard.component';
+import {TicketComponent} from  '../app/dashboard/ticket.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import  {ChatBotComponent} from  './chatbot.component';
@@ -30,7 +30,7 @@ import { AngularFireModule } from 'angularfire2';
     TabsPage,
     LoginPage,
     ChatBotComponent,
-    DashboardComponent
+    TicketComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +49,7 @@ import { AngularFireModule } from 'angularfire2';
     TabsPage,
     LoginPage,
     ChatBotComponent,
-    DashboardComponent
+    TicketComponent
   ],
   providers: [
     StatusBar,

@@ -3,11 +3,11 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 
 @Component({
     selector:'dashboard',
-    templateUrl:'dashboard.html'
+    templateUrl:'ticket.html'
 })
 
 
-export class DashboardComponent implements OnInit {
+export class TicketComponent implements OnInit {
 
     tickets: FirebaseListObservable<any[]>;
     constructor(public af: AngularFireDatabase){

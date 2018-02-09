@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LoginService } from '../../app/services/login.service';
-import {DashboardComponent} from  '../../app/dashboard/dashboard.component';
+import {TicketComponent} from  '../../app/dashboard/ticket.component';
 import { HomePage } from '../../pages/home/home';
 import {NgForm} from  '@angular/forms'
 import { ToastController } from 'ionic-angular';
@@ -30,7 +30,7 @@ login(ngForm : NgForm) {
     }
     this.loginService.login(username,password)
     .then(
-      (response)=>this.navCtrl.push(DashboardComponent),
+      (response)=>this.navCtrl.push(TicketComponent),
       (error)=>{
         this.showMessage('Invalid User  , Please  try again');
       }
