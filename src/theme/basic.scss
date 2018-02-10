@@ -246,7 +246,7 @@ p {
 		width: 100%;
 		float: left;
 		background: $chat_bg;
-		padding: 15px 20px;
+		padding: 10px 20px 65px;
 		overflow-y: scroll;
 
 		.col {
@@ -257,6 +257,7 @@ p {
 			background: $white;
 			@include border-radius(5px);
 			padding: 10px 15px;
+			margin-top: 5px;
 			width: auto;
 			float: left;
 			position: relative;
@@ -279,7 +280,7 @@ p {
 			background: $secondary_color;
 			@include border-radius(5px);
 			padding: 10px 15px;
-			margin: 15px 0;
+			margin: 15px 0 5px;
 			width: auto;
 			float: right;	
 			position: relative;
@@ -298,7 +299,7 @@ p {
 				border-top: 8px solid $secondary_color;
 				border-bottom: 8px solid transparent;
 				right: -9px;
-				top: 0px;			
+				top: 1px;			
 			}
 		}
 

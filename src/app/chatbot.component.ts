@@ -1,13 +1,17 @@
-import {Component,OnInit} from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {Component,OnInit, ViewChild } from '@angular/core';
+import { NavController, Content } from 'ionic-angular';
 import { HomePage } from '../pages/home/home';
-import {ChatbotService} from './services/chatbot.service'
+import {ChatbotService} from './services/chatbot.service';
+
+
 @Component({
     templateUrl: 'chatbot.html',
     selector: 'chat-bot'
+   
   })
-export class ChatBotComponent implements OnInit {
+export class ChatBotComponent implements OnInit {  
 
+  @ViewChild(Content) content: Content;
   userInput :string="";
   ngInput : string = "";
   watsonResponseArray : string[];
@@ -44,15 +48,14 @@ export class ChatBotComponent implements OnInit {
               console.log('node server returned cavion response '+cavionresponse.output);
               this.watsonResponseArray = cavionresponse.output;    
               this.messages.push({"question":"","answer":this.watsonResponseArray[0]});  
-              // this.chatbotService.processWatsonAction(cavionresponse.action,cavionresponse.data)  
-              // .subscribe((cavionmfaresponse:any)=>{
-              //   console.log('cavion mfa question is'+cavionmfaresponse.output)
-              //   this.watsonResponseArray = cavionmfaresponse.output; 
-              //   this.messages.push({"question":"","answer":this.watsonResponseArray[0]}); 
-              // })
+              
           })
       }
       this.messages.push({"question":this.ngInput,"answer":this.watsonResponseArray[0]});
+      setTimeout(() => {
+            this.content.scrollToBottom();
+        });
+      
    })
-  }
+  }   
 }

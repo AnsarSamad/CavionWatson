@@ -1,34 +1,4 @@
-<!--<ion-header>
-    <ion-toolbar>
-      <ion-buttons start>
-        <button ion-button icon-only color="royal">
-         
-        </button>
-      </ion-buttons>
-      <ion-title>Send To...</ion-title>
-      <ion-buttons end>
-        <button ion-button icon-only color="royal">
-          <ion-icon name="person-add"></ion-icon>
-        </button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content><span>{{watsonResponse}}</span></ion-content>
-  
-  <ion-footer>
-    <ion-toolbar>
-      <ion-input type="text" id="userInput" name="userInput" [(ngModel)]="userInput" ></ion-input>
-      <ion-buttons end>
-        <button ion-button icon-right color="royal"  (click)="send()">
-          Send
-          <ion-icon name="send"></ion-icon>
-        </button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-footer>-->
-
-  <ion-header class="chart_header_wrp">
+<ion-header class="chart_header_wrp">
     <ion-title class="name">FinBot Admin</ion-title>
     <div class="chat_back" (click)="goHome()">
         <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
@@ -44,7 +14,7 @@
           </ion-col>
           <ion-col col-12 *ngIf="message.answer">
               <div class="admin_chat">
-                <p>{{message.answer}}</p>
+                <p>{{message.answer}}</p>                         
               </div>
           </ion-col>
       </ion-row>
