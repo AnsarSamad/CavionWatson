@@ -46,12 +46,19 @@ export class ChatBotComponent implements OnInit {
           this.chatbotService.processWatsonAction(response.action,response.data)
           .subscribe((cavionresponse:any)=>{
               console.log('node server returned cavion response '+cavionresponse.output);
-              this.watsonResponseArray = cavionresponse.output;    
-              this.messages.push({"question":"","answer":this.watsonResponseArray[0]});  
+              this.watsonResponseArray = cavionresponse.output;      
+              this.watsonResponseArray.forEach((watsonAnswer)=>{
+                this.messages.push({"question":"","answer":watsonAnswer});
+              });
               
           })
       }
-      this.messages.push({"question":this.ngInput,"answer":this.watsonResponseArray[0]});
+      this.messages.push({"question":this.ngInput,"answer":""});
+      
+      this.watsonResponseArray.forEach((watsonAnswer)=>{
+        this.messages.push({"question":"","answer":watsonAnswer});
+      });
+
       setTimeout(() => {
             this.content.scrollToBottom();
         });
