@@ -48,7 +48,7 @@ export class ChatBotComponent implements OnInit {
               console.log('node server returned cavion response '+cavionresponse.output);
               this.watsonResponseArray = cavionresponse.output;      
               this.watsonResponseArray.forEach((watsonAnswer)=>{
-                this.messages.push({"question":"","answer":watsonAnswer});
+               this.messages.push({"question":"","answer":watsonAnswer});
               });
               
           })
