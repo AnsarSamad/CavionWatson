@@ -19,10 +19,11 @@ export class TicketComponent implements OnInit {
     goHome(){
         this.navCtrl.push(HomePage);
     }
-    goTicketDetails(){
-        this.navCtrl.push(TicketDetailsComponent);
+    goTicketDetails(ticket){
+        console.log(ticket);
+        this.navCtrl.push(TicketDetailsComponent,{currentTicket:ticket,allTickets:this.tickets});        
     }
-    deleteTicket() {
+    deleteTicket(key) {
         let confirm = this.alertCtrl.create({
         title: 'Are you want to delete this ticket?',
         
@@ -36,6 +37,7 @@ export class TicketComponent implements OnInit {
             {
             text: 'Delete',
             handler: () => {
+                this.tickets.remove(key);
                 console.log('Agree clicked');
             }
             }

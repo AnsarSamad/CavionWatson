@@ -15,7 +15,7 @@
         <p>{{ticket.Status}}</p>
       </ion-item>
       <ion-item-options class="button_opt">
-        <button ion-button color="light" icon-start (click)="goTicketDetails()">
+        <button ion-button color="light" icon-start (click)="goTicketDetails(ticket)">
                 <ion-icon name="ios-more"></ion-icon>
                 More
               </button>
@@ -23,7 +23,7 @@
                 <ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle"></ion-icon>
                 Approve
               </button>
-        <button ion-button color="danger" icon-start (click)="deleteTicket()">
+        <button ion-button color="danger" icon-start (click)="deleteTicket(ticket.$key)">
                 <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
                 Delete
               </button>
