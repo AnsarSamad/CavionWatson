@@ -2,6 +2,9 @@ import {Component,OnInit} from '@angular/core';
 import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 import {TicketComponent} from  '../../app/dashboard/ticket.component';
+import {TicketService} from  '../services/ticketService'
+import { ToastController } from 'ionic-angular';
+
 
 @Component({
     selector:'ticket-details',
@@ -13,7 +16,7 @@ export class TicketDetailsComponent implements OnInit {
 
     ticket: any;
     tickets: FirebaseListObservable<any[]>;
-    constructor(public af: AngularFireDatabase, public navCtrl: NavController, public alertCtrl: AlertController, public navParams:NavParams){
+    constructor(public af: AngularFireDatabase, public navCtrl: NavController, public alertCtrl: AlertController, public navParams:NavParams,public toastCtrl: ToastController,public ticketService:TicketService){
       this.ticket = this.navParams.get('currentTicket');
       this.tickets = this.navParams.get('allTickets');
     }
@@ -44,6 +47,21 @@ export class TicketDetailsComponent implements OnInit {
       ]
     });
     confirm.present();
+  }
+
+
+  approveTicket(descr){
+    this.ticketService.approveTicket(descr)
+    .subscribe((response)=>{
+        console.log('ticket get approved :'+response);
+        let toast = this.toastCtrl.create({
+          message: "Your ticket is approved",
+          duration: 3000,
+          position: 'top'
+        });
+        toast.present();
+        this.navCtrl.push(TicketComponent);
+    })
   }
 
     ngOnInit() {    

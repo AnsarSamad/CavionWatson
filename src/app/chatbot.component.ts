@@ -2,7 +2,7 @@ import {Component,OnInit, ViewChild } from '@angular/core';
 import { NavController, Content } from 'ionic-angular';
 import { HomePage } from '../pages/home/home';
 import {ChatbotService} from './services/chatbot.service';
-
+import {NgForm} from  '@angular/forms'
 
 @Component({
     templateUrl: 'chatbot.html',
@@ -33,7 +33,7 @@ export class ChatBotComponent implements OnInit {
     })
   }
 
-  send(){
+  send(ngForm :NgForm){
     console.log('user input is:'+this.userInput);
     this.ngInput = this.userInput;
     this.userInput = "";
@@ -41,7 +41,6 @@ export class ChatBotComponent implements OnInit {
    .subscribe((response:any)=>{     
       this.watsonResponseArray = response.output;
       console.log('watson response action :'+JSON.stringify(response))
-
       if(response.action != undefined){
           this.chatbotService.processWatsonAction(response.action,response.data)
           .subscribe((cavionresponse:any)=>{

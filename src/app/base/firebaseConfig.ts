@@ -13,7 +13,9 @@ class FirebaseConfig {
       };
 
     private constructor() {
-        firebase.initializeApp(this.config);
+        if (!firebase.apps.length) {
+            firebase.initializeApp(this.config);
+        }        
     }
     static initialize(): FirebaseConfig {
         if (this.firebaseConfig == null) {

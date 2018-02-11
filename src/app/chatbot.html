@@ -22,23 +22,27 @@
   </ion-content>
 
 <ion-footer class="ios_chat_footer_wrp" showWhen="ios">
-  <ion-toolbar>   
-    <ion-input type="text" id="userInput" name="userInput" [(ngModel)]="userInput" ></ion-input>
-    <ion-buttons end>
-      <button ion-button icon-center class="send_button" (click)="send()">
-       <ion-icon name="send"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
+  <form role="form" #chatForm="ngForm" (ngSubmit)="send(chatForm)" >
+    <ion-toolbar>  
+      <ion-input type="text" id="userInput" name="userInput" [(ngModel)]="userInput" ></ion-input>
+        <ion-buttons end>
+        <button ion-button icon-center class="send_button" type="submit">
+        <ion-icon name="send"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+</form>
 </ion-footer>
 
 <ion-footer class="android_chat_footer_wrp" showWhen="android">
-  <ion-toolbar>   
-    <ion-input type="text" id="userInput" name="userInput" [(ngModel)]="userInput" ></ion-input>
-    <ion-buttons end>
-      <button ion-button icon-center class="send_button" (click)="send()">
-       <ion-icon name="send"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
+  <form role="form" #chatForm="ngForm" (ngSubmit)="send(chatForm)" >
+    <ion-toolbar>    
+      <ion-input type="text" id="userInput" name="userInput" [(ngModel)]="userInput" ></ion-input>
+        <ion-buttons end>
+          <button ion-button icon-center class="send_button" type="submit">
+          <ion-icon name="send"></ion-icon>
+          </button>
+      </ion-buttons>
+    </ion-toolbar>
+</form>
 </ion-footer>

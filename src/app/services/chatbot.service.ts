@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core'
 import { HttpClient} from '@angular/common/http';
 import {AppConfig} from '../base/appconfig';
-import {Observable} from 'rxjs';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 @Injectable()
 
@@ -19,10 +18,13 @@ export class ChatbotService{
     }
 
     processWatsonAction(action:string,data){
-        if(action === "do_create_ticket"){
-            const ticket = {Ticket_id:'105',Ticket_description:data.issue_title,Member:'John sam',Product:'cavion',Status:'Pending'};
-            this.tickets.push(ticket);            
+        if(action === "do_create_ticket"){            
+            const ticket = {Ticket_id:'105',Issue_description:data.issue_title,Member:data.member,Product:'cavion',Status:'Pending'};
+            this.tickets.push(ticket)    
+            return this.http.post("http://localhost:3000/watson" ,{"userInput":"ticket  created"} );                          
+        }else{
+            return this.http.post("http://localhost:3000/cavion" ,{"action":action,"data":data} );
         }
-        return this.http.post("http://localhost:3000/cavion" ,{"action":action,"data":data} );
+        
     }
 }

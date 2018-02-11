@@ -21,6 +21,7 @@ import { LoginPage } from "../pages/login/login";
 import { AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/database-deprecated';
 import { firebase } from "../app/base/firebase";
 import { AngularFireModule } from 'angularfire2';
+import {TicketService} from  './services/ticketService';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { AngularFireModule } from 'angularfire2';
     SplashScreen,
     LoginService,
     ChatbotService,
+    TicketService,
     AppConfig,
     AngularFireDatabase,
     { provide: APP_INITIALIZER, useFactory: (config: AppConfig) => () => config.load(), deps: [AppConfig], multi: true },
