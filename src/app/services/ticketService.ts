@@ -15,6 +15,6 @@ export class TicketService{
         currentTicket.Status = 'Approved';
         this.users.update(currentTicket.$key, currentTicket);
         let request = this.appConfig.getServerUrl();
-        return this.http.post("http://localhost:3000/dyncrm/addnewcase" ,{"issue_title":currentTicket.issue_title} );
+        return this.http.post("http://localhost:3000/dyncrm/addnewcase" ,{"issue_title":currentTicket.Issue_description} );
     }
 }
