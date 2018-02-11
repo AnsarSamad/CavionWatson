@@ -3,7 +3,7 @@ import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 import {TicketComponent} from  '../../app/dashboard/ticket.component';
 import {TicketService} from  '../services/ticketService'
-import { ToastController } from 'ionic-angular';
+import { ToastController ,LoadingController } from 'ionic-angular';
 
 
 @Component({
@@ -16,9 +16,13 @@ export class TicketDetailsComponent implements OnInit {
 
     ticket: any;
     tickets: FirebaseListObservable<any[]>;
-    constructor(public af: AngularFireDatabase, public navCtrl: NavController, public alertCtrl: AlertController, public navParams:NavParams,public toastCtrl: ToastController,public ticketService:TicketService){
+    loader= null;
+    constructor(public af: AngularFireDatabase, public navCtrl: NavController, public alertCtrl: AlertController, public navParams:NavParams,public toastCtrl: ToastController,public loadingCtrl: LoadingController,public ticketService:TicketService){
       this.ticket = this.navParams.get('currentTicket');
       this.tickets = this.navParams.get('allTickets');
+      this.loader = this.loadingCtrl.create({
+        content: "Please wait...",
+      });
     }
 
     goTickets(){
@@ -50,7 +54,8 @@ export class TicketDetailsComponent implements OnInit {
   }
 
 
-  approveTicket(currentTicket){
+  approveTicket(currentTicket){    
+    this.loader.present();
     this.ticketService.approveTicket(currentTicket)
     .subscribe((response)=>{
         console.log('ticket got approved :'+response);
@@ -59,6 +64,7 @@ export class TicketDetailsComponent implements OnInit {
           duration: 3000,
           position: 'top'
         });
+        this.loader._destroy();
         toast.present();
         this.navCtrl.push(TicketComponent);
     })
@@ -67,4 +73,7 @@ export class TicketDetailsComponent implements OnInit {
     ngOnInit() {    
       
     }
+
+
+    
 }
