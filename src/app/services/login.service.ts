@@ -9,8 +9,6 @@ export class LoginService extends Validator{
         super();
     }
     login(username:String,password:String){
-        console.log('login service called');
-        //return this.http.post('http://localhost:3000/login/validate',{"username":username,"password":password});
         return new Promise((resolve,reject)=>{            
             this.ValidateBnkUser(username,password).then(
                 (response)=>resolve(true),

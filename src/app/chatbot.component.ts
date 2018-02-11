@@ -34,17 +34,14 @@ export class ChatBotComponent implements OnInit {
   }
 
   send(ngForm :NgForm){
-    console.log('user input is:'+this.userInput);
     this.ngInput = this.userInput;
     this.userInput = "";
    this.chatbotService.getData(this.ngInput)
    .subscribe((response:any)=>{     
       this.watsonResponseArray = response.output;
-      console.log('watson response action :'+JSON.stringify(response))
       if(response.action != undefined){
           this.chatbotService.processWatsonAction(response.action,response.data)
           .subscribe((cavionresponse:any)=>{
-              console.log('node server returned cavion response '+cavionresponse.output);
               this.watsonResponseArray = cavionresponse.output;      
               this.watsonResponseArray.forEach((watsonAnswer)=>{
                this.messages.push({"question":"","answer":watsonAnswer});

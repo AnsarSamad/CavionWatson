@@ -36,8 +36,7 @@ export class TicketDetailsComponent implements OnInit {
       buttons: [
         {
           text: 'Cancel',
-          handler: () => {            
-            console.log('Disagree clicked');
+          handler: () => {
           }
         },
         {
@@ -45,14 +44,12 @@ export class TicketDetailsComponent implements OnInit {
           handler: () => {
             this.tickets.remove(key);
             this.navCtrl.push(TicketComponent);
-            console.log('Agree clicked');
           }
         }
       ]
     });
     confirm.present();
   }
-
 
   approveTicket(currentTicket){    
     this.loader.present();

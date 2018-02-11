@@ -12,8 +12,7 @@ export class ChatbotService{
         this.tickets = this.af.list('/Tickets');
     }
     getData(userInput:string){
-        let request = this.appConfig.getServerUrl();
-        console.log('server url is:'+request);      
+        let request = this.appConfig.getServerUrl(); 
         return this.http.post("http://localhost:3000/watson" ,{"userInput":userInput} );
     }
 

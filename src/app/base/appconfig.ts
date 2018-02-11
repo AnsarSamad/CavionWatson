@@ -25,7 +25,6 @@ export class AppConfig{
             this.http.get('http://localhost:8100/assets/config.json')
             .subscribe( (response:any) => {
                this.config = response;
-               console.log('config file loaded :'+this.getObject("server.url"));
                resolve(true);
             });
         });

@@ -22,7 +22,6 @@ export class TicketComponent implements OnInit {
         this.navCtrl.push(HomePage);
     }
     goTicketDetails(ticket){
-        console.log("Ticket Details =>" + ticket);
         this.navCtrl.push(TicketDetailsComponent,{currentTicket:ticket,allTickets:this.tickets});        
     }
     deleteTicket(key) {
@@ -33,14 +32,12 @@ export class TicketComponent implements OnInit {
             {
             text: 'Cancel',
             handler: () => {
-                console.log('Disagree clicked');
             }
             },
             {
             text: 'Delete',
             handler: () => {
                 this.tickets.remove(key);
-                console.log('Agree clicked');
             }
             }
         ]
@@ -49,8 +46,7 @@ export class TicketComponent implements OnInit {
     }
 
     ngOnInit() {
-       this.tickets = this.af.list('/Tickets');        
-        console.log("Tickets :" + this.tickets);
+       this.tickets = this.af.list('/Tickets');
     
   }  
 }

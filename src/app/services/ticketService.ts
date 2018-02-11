@@ -12,12 +12,9 @@ export class TicketService{
        this.users = this.af.list('/Tickets');
     }
     approveTicket(currentTicket){
-        console.log("Current Ticket :" + currentTicket);
-        console.log("Staus : " +currentTicket.Status);
         currentTicket.Status = 'Approved';
         this.users.update(currentTicket.$key, currentTicket);
         let request = this.appConfig.getServerUrl();
-        console.log('server url is:'+request);      
         return this.http.post("http://localhost:3000/dyncrm/addnewcase" ,{"issue_title":currentTicket.issue_title} );
     }
 }

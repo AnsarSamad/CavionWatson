@@ -12,12 +12,10 @@ export class Validator{
                         resolve(true);
                     }
                     else{
-                        console.log("User is not a valid member.");
                         reject(false);
                     }
                 }, function (errorObject) {
-                console.log("Read failed from DB : " + errorObject.code);
-                reject(false);
+                    reject(false);
               });
         })
 
