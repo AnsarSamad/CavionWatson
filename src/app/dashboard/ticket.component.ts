@@ -3,6 +3,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 import { HomePage } from '../../pages/home/home';
 import {TicketDetailsComponent} from  '../ticket-details/ticket-details.component';
+import {ReversePipe} from '../ReversePipe';
 
 @Component({
     selector:'dashboard',
@@ -13,6 +14,7 @@ import {TicketDetailsComponent} from  '../ticket-details/ticket-details.componen
 export class TicketComponent implements OnInit {
 
     tickets: FirebaseListObservable<any[]>;
+    
     constructor(public af: AngularFireDatabase, public navCtrl: NavController, public alertCtrl: AlertController){
 
     }
@@ -47,8 +49,8 @@ export class TicketComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.tickets = this.af.list('/Tickets');
+       this.tickets = this.af.list('/Tickets');        
         console.log("Tickets :" + this.tickets);
     
-  }
+  }  
 }

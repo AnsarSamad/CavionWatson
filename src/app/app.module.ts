@@ -22,6 +22,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase} from 'angularfire2/data
 import { firebase } from "../app/base/firebase";
 import { AngularFireModule } from 'angularfire2';
 import {TicketService} from  './services/ticketService';
+import {ReversePipe} from './ReversePipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {TicketService} from  './services/ticketService';
     LoginPage,
     ChatBotComponent,
     TicketComponent,
-    TicketDetailsComponent
+    TicketDetailsComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

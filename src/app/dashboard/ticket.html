@@ -5,8 +5,8 @@
     <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
   </div>
 </ion-header>
-<ion-content class="outer-content epic_wrp">
-  <ion-list *ngFor="let ticket of tickets | async">
+<ion-content class="outer-content epic_wrp">  
+  <ion-list *ngFor="let ticket of tickets | async | reverse">
     <ion-item-sliding>
       <ion-item>
         <h2>{{ticket.Member}} 
