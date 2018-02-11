@@ -398,6 +398,13 @@ p {
 				font-size: 16px;
 				color: $ios_title;
 				font-weight: 500;
+
+				.approved {
+					font-size: 20px;
+					position: relative;
+					top: 2px;
+					left: 5px; 
+				}
 			}
 			h3 {
 				font-size: 14px;

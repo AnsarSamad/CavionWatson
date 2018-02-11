@@ -9,17 +9,20 @@
   <ion-list *ngFor="let ticket of tickets | async">
     <ion-item-sliding>
       <ion-item>
-        <h2>{{ticket.Member}}</h2>
-        <h3>Ticket Number - {{ticket.Ticket_id}}</h3>
+        <h2>{{ticket.Member}} 
+          
+            <ion-icon *ngIf="ticket.Status=='Approved'" ios="ios-checkmark-circle-outline" color="secondary" md="md-checkmark-circle-outline" class="approved"></ion-icon>
+     
+        </h2>     
+        <h3>#{{ticket.Ticket_id}}</h3>
         <p>{{ticket.Issue_description}}</p>
-        <p>{{ticket.Status}}</p>
       </ion-item>
       <ion-item-options class="button_opt">
         <button ion-button color="light" icon-start (click)="goTicketDetails(ticket)">
                 <ion-icon name="ios-more"></ion-icon>
                 More
               </button>
-        <button ion-button color="secondary" icon-start>
+        <button *ngIf="ticket.Status!='Approved'" ion-button color="secondary" icon-start>
                 <ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle"></ion-icon>
                 Approve
               </button>

@@ -20,7 +20,7 @@ export class TicketComponent implements OnInit {
         this.navCtrl.push(HomePage);
     }
     goTicketDetails(ticket){
-        console.log(ticket);
+        console.log("Ticket Details =>" + ticket);
         this.navCtrl.push(TicketDetailsComponent,{currentTicket:ticket,allTickets:this.tickets});        
     }
     deleteTicket(key) {

@@ -50,10 +50,10 @@ export class TicketDetailsComponent implements OnInit {
   }
 
 
-  approveTicket(descr){
-    this.ticketService.approveTicket(descr)
+  approveTicket(currentTicket){
+    this.ticketService.approveTicket(currentTicket)
     .subscribe((response)=>{
-        console.log('ticket get approved :'+response);
+        console.log('ticket got approved :'+response);
         let toast = this.toastCtrl.create({
           message: "Your ticket is approved",
           duration: 3000,

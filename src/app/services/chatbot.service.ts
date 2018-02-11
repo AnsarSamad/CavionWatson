@@ -19,8 +19,10 @@ export class ChatbotService{
 
     processWatsonAction(action:string,data){
         if(action === "do_create_ticket"){            
-            const ticket = {Ticket_id:'105',Issue_description:data.issue_title,Member:data.member,Product:'cavion',Status:'Pending'};
-            this.tickets.push(ticket)    
+            let date = new Date();
+            let dateString = date.getDate() + "/" + date.getMonth()+"/"+date.getFullYear();
+            const ticket = {Ticket_id:'105',Issue_description:data.issue_title,Member:'John sam',Product:'cavion',Status:'Pending',Date:dateString};
+            this.tickets.push(ticket); 
             return this.http.post("http://localhost:3000/watson" ,{"userInput":"ticket  created"} );                          
         }else{
             return this.http.post("http://localhost:3000/cavion" ,{"action":action,"data":data} );
