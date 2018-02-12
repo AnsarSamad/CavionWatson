@@ -9,11 +9,7 @@
   <ion-list *ngFor="let ticket of tickets | async | reverse">
     <ion-item-sliding>
       <ion-item>
-        <h2>{{ticket.Member}} 
-          
-            <ion-icon *ngIf="ticket.Status=='Approved'" ios="ios-checkmark-circle-outline" color="secondary" md="md-checkmark-circle-outline" class="approved"></ion-icon>
-     
-        </h2>     
+        <h2>{{ticket.Member}}</h2>     
         <h3>#{{ticket.Ticket_id}}</h3>
         <p>{{ticket.Issue_description}}</p>
       </ion-item>
