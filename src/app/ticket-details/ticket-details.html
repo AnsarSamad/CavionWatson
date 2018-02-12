@@ -23,21 +23,6 @@
        Status - {{ticket.Status}}
       </p>
     </ion-card-content>
-    <ion-row class="row" no-padding>
-      <ion-col class="col" text-left *ngIf="ticket.Status!='Approved'">
-            <button ion-button color="secondary" clear (click)="approveTicket(ticket)">
-              <span class="button-inner">
-                <ion-icon ios="ios-checkmark-circle" md="md-checkmark-circle"></ion-icon> Approve
-              </span>
-            </button>
-      </ion-col>
-      <ion-col class="col" text-right>
-            <button ion-button color="danger" clear (click)="deleteTicket(ticket.$key)">
-              <span class="button-inner">
-                <ion-icon ios="ios-trash" md="md-trash"></ion-icon> Delete
-              </span>
-            </button>
-      </ion-col>
-    </ion-row>
+
   </ion-card>
 </ion-content>

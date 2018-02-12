@@ -18,18 +18,11 @@
         <p>{{ticket.Issue_description}}</p>
       </ion-item>
       <ion-item-options class="button_opt">
-        <button ion-button color="light" icon-start (click)="goTicketDetails(ticket)">
+        <button ion-button color="secondary" icon-start (click)="goTicketDetails(ticket)">
                 <ion-icon name="ios-more"></ion-icon>
-                More
+                View
               </button>
-        <button *ngIf="ticket.Status!='Approved'" ion-button color="secondary" icon-start>
-                <ion-icon ios="ios-checkmark-circle-outline" md="md-checkmark-circle"></ion-icon>
-                Approve
-              </button>
-        <button ion-button color="danger" icon-start (click)="deleteTicket(ticket.$key)">
-                <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-                Delete
-              </button>
+        
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
