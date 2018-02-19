@@ -23,7 +23,7 @@ export class ChatbotService{
             let dateString = date.getDate() + "/" + date.getMonth()+"/"+date.getFullYear();
             const ticket = {Ticket_id:ticket_id,Issue_description:data.issue_title,Member:data.member,Product:'cavion',Status:'Pending',Date:dateString};
             this.tickets.push(ticket); 
-            return this.http.post("http://localhost:3000/dyncrm/addnewcase" ,{"issue_title":data.issue_title} );
+            return this.http.post("http://localhost:3000/dyncrm/addnewcase" ,{"issue_title":data.issue_title, "ticket_number":ticket_id} );
         }else{
             return this.http.post("http://localhost:3000/cavion" ,{"action":action,"data":data} );
         } 
